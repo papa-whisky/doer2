@@ -1,24 +1,22 @@
 console.log('linked');
 
-var Note = Backbone.Model.extend({});
-
-var todoList = new Backbone.Collection([new Note({
+var todoList = new Notes([{
   content: 'do something',
   done: false
-}), new Note({
+}, {
   content: 'blah blah blah',
   done: false
-})]);
+}]);
 
-var doneList = new Backbone.Collection([new Note({
+var doneList = new Notes([{
   content: 'another note',
   done: true
-})]);
+}]);
 
-var todoView = new TodoView();
+var todoView = new ListView({ collection: todoList });
 todoView.render();
-$('body').append(todoView.$el);
+$('#root').append(todoView.$el);
 
-var doneView = new DoneView();
+var doneView = new ListView({ collection: doneList });
 doneView.render();
-$('body').append(doneView.$el);
+$('#root').append(doneView.$el);

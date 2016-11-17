@@ -7,6 +7,7 @@ var NoteView = Backbone.View.extend({
 
   render: function() {
     this.$el.html('<p>' + this.model.get('content') + '</p>');
+    return this;
   },
 
   toggleStatus: function() {
